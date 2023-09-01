@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 
 final class MainViewController: UIViewController {
-    private let newsArray = ["Test"]
+    private var newsArray = [Post]()
+    private let networkManager = NetworkManager()
     //MARK: UI elements
     private let newsCollectionView: UICollectionView = {
         let newsFlowLayout = UICollectionViewFlowLayout()
@@ -24,6 +25,11 @@ final class MainViewController: UIViewController {
         defaultConfigurations()
         setupUI()
         setupDelegates()
+        networkManager.getNewsList { [weak self] posts in
+            guard let self else { return }
+            self.newsArray = posts
+            newsCollectionView.reloadData()
+        }
     }
     //MARK: Methods
     private func defaultConfigurations() {
@@ -51,11 +57,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as? NewsCollectionViewCell else { return UICollectionViewCell() }
-        cell.infoToShow = Post(postID: 143, timeshamp: 1645030659, title: "Test", previewText: "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST", likesCount: 356)
+        cell.infoToShow = newsArray[indexPath.row]
         return cell
     }
-    
-    
 }
 //MARK: - Constants
 extension MainViewController {

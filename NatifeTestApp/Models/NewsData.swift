@@ -7,8 +7,8 @@
 
 import Foundation
 
-// MARK: NewsInfo
-struct NewsInfo: Codable {
+// MARK: NewsData
+struct NewsData: Codable {
     let posts: [Post]
 }
 

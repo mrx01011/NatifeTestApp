@@ -9,13 +9,14 @@ import UIKit
 import SnapKit
 
 final class NewsCollectionViewCell: UICollectionViewCell {
+    private let dateManager = DateManager()
     var infoToShow: Post? {
         didSet {
             titleLabel.text = infoToShow?.title
             messageLabel.text = infoToShow?.previewText
             ratingLabel.text = "❤️ \(infoToShow?.likesCount ?? 0)"
-            let daysShamp = (infoToShow?.timeshamp ?? 0) / 86400000
-            dateLabel.text = "\(daysShamp) days ago"
+            let timeAgo = dateManager.timeAgoSinceDate(TimeInterval(infoToShow?.timeshamp ?? 0))
+            dateLabel.text = timeAgo
         }
     }
     //MARK: UI elements
