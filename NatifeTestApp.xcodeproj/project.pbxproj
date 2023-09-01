@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		FAD5634D2AA2252000A86428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5634C2AA2252000A86428 /* AppDelegate.swift */; };
 		FAD5634F2AA2252000A86428 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5634E2AA2252000A86428 /* SceneDelegate.swift */; };
-		FAD563512AA2252000A86428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD563502AA2252000A86428 /* ViewController.swift */; };
-		FAD563542AA2252000A86428 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD563522AA2252000A86428 /* Main.storyboard */; };
+		FAD563512AA2252000A86428 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD563502AA2252000A86428 /* MainViewController.swift */; };
 		FAD563562AA2252100A86428 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD563552AA2252100A86428 /* Assets.xcassets */; };
-		FAD563592AA2252100A86428 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD563572AA2252100A86428 /* LaunchScreen.storyboard */; };
 		FAD563642AA2252200A86428 /* NatifeTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD563632AA2252200A86428 /* NatifeTestAppTests.swift */; };
 		FAD5636E2AA2252200A86428 /* NatifeTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5636D2AA2252200A86428 /* NatifeTestAppUITests.swift */; };
 		FAD563702AA2252200A86428 /* NatifeTestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5636F2AA2252200A86428 /* NatifeTestAppUITestsLaunchTests.swift */; };
+		FAD5637D2AA230CF00A86428 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD5637C2AA230CF00A86428 /* Launch Screen.storyboard */; };
+		FAD563832AA2331F00A86428 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAD563822AA2331F00A86428 /* SnapKit */; };
+		FAD563872AA236E100A86428 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD563862AA236E100A86428 /* NewsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,16 +40,16 @@
 		FAD563492AA2252000A86428 /* NatifeTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NatifeTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD5634C2AA2252000A86428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD5634E2AA2252000A86428 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAD563502AA2252000A86428 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FAD563532AA2252000A86428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAD563502AA2252000A86428 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FAD563552AA2252100A86428 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FAD563582AA2252100A86428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD5635A2AA2252100A86428 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAD5635F2AA2252200A86428 /* NatifeTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NatifeTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD563632AA2252200A86428 /* NatifeTestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatifeTestAppTests.swift; sourceTree = "<group>"; };
 		FAD563692AA2252200A86428 /* NatifeTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NatifeTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD5636D2AA2252200A86428 /* NatifeTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatifeTestAppUITests.swift; sourceTree = "<group>"; };
 		FAD5636F2AA2252200A86428 /* NatifeTestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatifeTestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FAD5637C2AA230CF00A86428 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		FAD563862AA236E100A86428 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD563832AA2331F00A86428 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,12 +101,10 @@
 		FAD5634B2AA2252000A86428 /* NatifeTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				FAD5634C2AA2252000A86428 /* AppDelegate.swift */,
-				FAD5634E2AA2252000A86428 /* SceneDelegate.swift */,
-				FAD563502AA2252000A86428 /* ViewController.swift */,
-				FAD563522AA2252000A86428 /* Main.storyboard */,
-				FAD563552AA2252100A86428 /* Assets.xcassets */,
-				FAD563572AA2252100A86428 /* LaunchScreen.storyboard */,
+				FAD563802AA2316000A86428 /* Controllers */,
+				FAD563842AA236A800A86428 /* Views */,
+				FAD5637E2AA2313A00A86428 /* Resources */,
+				FAD5637F2AA2314B00A86428 /* Application */,
 				FAD5635A2AA2252100A86428 /* Info.plist */,
 			);
 			path = NatifeTestApp;
@@ -127,6 +127,48 @@
 			path = NatifeTestAppUITests;
 			sourceTree = "<group>";
 		};
+		FAD5637E2AA2313A00A86428 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FAD5637C2AA230CF00A86428 /* Launch Screen.storyboard */,
+				FAD563552AA2252100A86428 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FAD5637F2AA2314B00A86428 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				FAD5634C2AA2252000A86428 /* AppDelegate.swift */,
+				FAD5634E2AA2252000A86428 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		FAD563802AA2316000A86428 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAD563502AA2252000A86428 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FAD563842AA236A800A86428 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAD563852AA236C000A86428 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FAD563852AA236C000A86428 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAD563862AA236E100A86428 /* NewsCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +185,9 @@
 			dependencies = (
 			);
 			name = NatifeTestApp;
+			packageProductDependencies = (
+				FAD563822AA2331F00A86428 /* SnapKit */,
+			);
 			productName = NatifeTestApp;
 			productReference = FAD563492AA2252000A86428 /* NatifeTestApp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +260,9 @@
 				Base,
 			);
 			mainGroup = FAD563402AA2252000A86428;
+			packageReferences = (
+				FAD563812AA2331F00A86428 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FAD5634A2AA2252000A86428 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,9 +279,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD563592AA2252100A86428 /* LaunchScreen.storyboard in Resources */,
+				FAD5637D2AA230CF00A86428 /* Launch Screen.storyboard in Resources */,
 				FAD563562AA2252100A86428 /* Assets.xcassets in Resources */,
-				FAD563542AA2252000A86428 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +305,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD563512AA2252000A86428 /* ViewController.swift in Sources */,
+				FAD563512AA2252000A86428 /* MainViewController.swift in Sources */,
 				FAD5634D2AA2252000A86428 /* AppDelegate.swift in Sources */,
 				FAD5634F2AA2252000A86428 /* SceneDelegate.swift in Sources */,
+				FAD563872AA236E100A86428 /* NewsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,25 +343,6 @@
 			targetProxy = FAD5636A2AA2252200A86428 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		FAD563522AA2252000A86428 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FAD563532AA2252000A86428 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FAD563572AA2252100A86428 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FAD563582AA2252100A86428 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FAD563712AA2252200A86428 /* Debug */ = {
@@ -366,7 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -442,9 +471,8 @@
 				INFOPLIST_FILE = NatifeTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,7 +482,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -470,9 +498,8 @@
 				INFOPLIST_FILE = NatifeTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,7 +509,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -602,6 +629,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAD563812AA2331F00A86428 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAD563822AA2331F00A86428 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAD563812AA2331F00A86428 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAD563412AA2252000A86428 /* Project object */;
 }
