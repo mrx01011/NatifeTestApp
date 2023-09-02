@@ -22,7 +22,7 @@ final class NewsCollectionViewCell: UICollectionViewCell {
             messageLabel.text = infoToShow?.previewText
             ratingLabel.text = "❤️ \(infoToShow?.likesCount ?? 0)"
             state = .init(isTextTruncated: messageLabel.isTruncated)
-            let timeAgo = dateManager.timeAgoSinceDate(TimeInterval(infoToShow?.timeshamp ?? 0))
+            let timeAgo = dateManager.timeAgoFrom(unixTimestamp: TimeInterval(infoToShow?.timeshamp ?? 0))
             dateLabel.text = timeAgo
         }
     }

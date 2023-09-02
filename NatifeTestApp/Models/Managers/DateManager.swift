@@ -8,7 +8,7 @@
 import Foundation
 
 final class DateManager {
-    func timeAgoSinceDate(_ unixTimestamp: TimeInterval) -> String {
+    func timeAgoFrom(unixTimestamp: TimeInterval) -> String {
         let currentDate = Date()
         let timestampDate = Date(timeIntervalSince1970: unixTimestamp)
         
@@ -36,5 +36,14 @@ final class DateManager {
         } else {
             return "just now"
         }
+    }
+    
+    func dateFrom(unixTimestamp: TimeInterval) -> String {
+        let formatter = DateFormatter()
+        let date = Date(timeIntervalSince1970: unixTimestamp)
+        formatter.locale = Locale(identifier: "en_GB")
+        formatter.dateFormat = "d MMM, yyyy"
+        let formattedDate = formatter.string(from: date)
+        return formattedDate
     }
 }

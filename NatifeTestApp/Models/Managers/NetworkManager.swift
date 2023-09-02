@@ -24,4 +24,19 @@ final class NetworkManager {
             task.resume()
         }
     }
+    
+    func getPostBy(id: Int, completion: ((PostData) -> Void)?) {
+        guard let url = URL(string: "https://raw.githubusercontent.com/anton-natife/jsons/master/api/posts/\(id).json") else { return }
+        queue.async {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data,
+                   let post = try? JSONDecoder().decode(PostData.self, from: data) {
+                    DispatchQueue.main.async {
+                        completion?(post)
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
 }
