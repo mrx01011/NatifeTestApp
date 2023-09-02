@@ -7,18 +7,26 @@
 
 import UIKit
 import SnapKit
+import ExpandableLabel
 
 final class NewsCollectionViewCell: UICollectionViewCell {
+    var state: NewsCollectionViewCellState = .normal {
+        didSet {
+            updateCellState(state)
+        }
+    }
     private let dateManager = DateManager()
     var infoToShow: Post? {
         didSet {
             titleLabel.text = infoToShow?.title
             messageLabel.text = infoToShow?.previewText
             ratingLabel.text = "❤️ \(infoToShow?.likesCount ?? 0)"
+            state = .init(isTextTruncated: messageLabel.isTruncated)
             let timeAgo = dateManager.timeAgoSinceDate(TimeInterval(infoToShow?.timeshamp ?? 0))
             dateLabel.text = timeAgo
         }
     }
+    var constraintButton: Constraint?
     //MARK: UI elements
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -50,6 +58,14 @@ final class NewsCollectionViewCell: UICollectionViewCell {
         label.textColor = .black
         return label
     }()
+    private let expandButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Expand", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .systemGray
+        button.layer.cornerRadius = 10
+        return button
+    }()
     //MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,6 +81,24 @@ final class NewsCollectionViewCell: UICollectionViewCell {
         let newAttributes = super.preferredLayoutAttributesFitting(layoutAttributes)
         newAttributes.frame.size = systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
         return newAttributes
+    }
+    
+    private func updateCellState(_ state: NewsCollectionViewCellState) {
+        switch state {
+        case .normal:
+            expandButton.removeFromSuperview()
+            constraintButton?.update(priority: .high)
+        case .collapsed:
+            addSubview(expandButton)
+            expandButton.snp.makeConstraints { make in
+                make.top.equalTo(ratingLabel.snp.bottom).offset(Constants.Offsets.top)
+                make.horizontalEdges.equalToSuperview().inset(Constants.Offsets.side)
+                make.bottom.equalToSuperview()
+            }
+            constraintButton?.update(priority: .low)
+        case .expended:
+            expandButton.setTitle("Collapse", for: .normal)
+        }
     }
     
     private func setupUI() {
@@ -85,7 +119,7 @@ final class NewsCollectionViewCell: UICollectionViewCell {
         ratingLabel.snp.makeConstraints { make in
             make.top.equalTo(messageLabel.snp.bottom).offset(Constants.Offsets.top)
             make.leading.equalToSuperview().offset(Constants.Offsets.side)
-            make.bottom.equalToSuperview()
+            constraintButton = make.bottom.equalToSuperview().priority(.high).constraint
         }
         //date
         addSubview(dateLabel)
@@ -93,10 +127,26 @@ final class NewsCollectionViewCell: UICollectionViewCell {
             make.centerY.equalTo(ratingLabel)
             make.top.equalTo(messageLabel.snp.bottom).offset(Constants.Offsets.top)
             make.trailing.equalToSuperview().inset(Constants.Offsets.side)
-            make.bottom.equalToSuperview()
         }
     }
 }
+//MARK: - State
+extension NewsCollectionViewCell {
+    enum NewsCollectionViewCellState {
+        case normal
+        case collapsed
+        case expended
+        
+        init(isTextTruncated: Bool) {
+            if isTextTruncated {
+                self = .collapsed
+            } else {
+                self = .normal
+            }
+        }
+    }
+}
+
 //MARK: - Constants
 extension NewsCollectionViewCell {
     enum Constants {

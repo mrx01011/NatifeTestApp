@@ -21,6 +21,8 @@
 		FAD5638D2AA2422400A86428 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5638C2AA2422400A86428 /* NewsData.swift */; };
 		FAD563902AA2581C00A86428 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5638F2AA2581C00A86428 /* NetworkManager.swift */; };
 		FAD563932AA25E0A00A86428 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD563922AA25E0A00A86428 /* DateManager.swift */; };
+		FAD563992AA3462C00A86428 /* ExpandableLabel in Frameworks */ = {isa = PBXBuildFile; productRef = FAD563982AA3462C00A86428 /* ExpandableLabel */; };
+		FAD5639B2AA34E4600A86428 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5639A2AA34E4600A86428 /* UILabel + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,7 @@
 		FAD5638C2AA2422400A86428 /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		FAD5638F2AA2581C00A86428 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FAD563922AA25E0A00A86428 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		FAD5639A2AA34E4600A86428 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD563832AA2331F00A86428 /* SnapKit in Frameworks */,
+				FAD563992AA3462C00A86428 /* ExpandableLabel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD563892AA23EB400A86428 /* NewsFlowLayout.swift */,
+				FAD5639A2AA34E4600A86428 /* UILabel + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 			name = NatifeTestApp;
 			packageProductDependencies = (
 				FAD563822AA2331F00A86428 /* SnapKit */,
+				FAD563982AA3462C00A86428 /* ExpandableLabel */,
 			);
 			productName = NatifeTestApp;
 			productReference = FAD563492AA2252000A86428 /* NatifeTestApp.app */;
@@ -298,6 +304,7 @@
 			mainGroup = FAD563402AA2252000A86428;
 			packageReferences = (
 				FAD563812AA2331F00A86428 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				FAD563972AA3462C00A86428 /* XCRemoteSwiftPackageReference "ExpandableLabel" */,
 			);
 			productRefGroup = FAD5634A2AA2252000A86428 /* Products */;
 			projectDirPath = "";
@@ -347,6 +354,7 @@
 				FAD563902AA2581C00A86428 /* NetworkManager.swift in Sources */,
 				FAD5638A2AA23EB400A86428 /* NewsFlowLayout.swift in Sources */,
 				FAD563932AA25E0A00A86428 /* DateManager.swift in Sources */,
+				FAD5639B2AA34E4600A86428 /* UILabel + Extension.swift in Sources */,
 				FAD5634F2AA2252000A86428 /* SceneDelegate.swift in Sources */,
 				FAD563872AA236E100A86428 /* NewsCollectionViewCell.swift in Sources */,
 			);
@@ -679,6 +687,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		FAD563972AA3462C00A86428 /* XCRemoteSwiftPackageReference "ExpandableLabel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/woodjobber/ExpandableLabel.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -686,6 +702,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FAD563812AA2331F00A86428 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		FAD563982AA3462C00A86428 /* ExpandableLabel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAD563972AA3462C00A86428 /* XCRemoteSwiftPackageReference "ExpandableLabel" */;
+			productName = ExpandableLabel;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
