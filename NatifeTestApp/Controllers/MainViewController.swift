@@ -30,6 +30,7 @@ final class MainViewController: UIViewController {
             self.newsArray = posts
             newsCollectionView.reloadData()
         }
+        
     }
     //MARK: Methods
     private func defaultConfigurations() {
@@ -82,12 +83,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as? NewsCollectionViewCell else { return UICollectionViewCell() }
         cell.infoToShow = newsArray[indexPath.row]
+        DispatchQueue.main.async {
+            cell.state = .init(isTextTruncated: cell.messageLabel.isTruncated())
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedPostId = newsArray[indexPath.row].postID
-        print("selected post - \(selectedPostId)")
         networkManager.getPostBy(id: selectedPostId) { [weak self] postData in
             guard let self else { return }
             let detailVC = NewsDetailViewController(

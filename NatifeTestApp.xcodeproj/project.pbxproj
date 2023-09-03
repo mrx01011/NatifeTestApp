@@ -21,7 +21,6 @@
 		FAD5638D2AA2422400A86428 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5638C2AA2422400A86428 /* NewsData.swift */; };
 		FAD563902AA2581C00A86428 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5638F2AA2581C00A86428 /* NetworkManager.swift */; };
 		FAD563932AA25E0A00A86428 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD563922AA25E0A00A86428 /* DateManager.swift */; };
-		FAD563992AA3462C00A86428 /* ExpandableLabel in Frameworks */ = {isa = PBXBuildFile; productRef = FAD563982AA3462C00A86428 /* ExpandableLabel */; };
 		FAD5639B2AA34E4600A86428 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5639A2AA34E4600A86428 /* UILabel + Extension.swift */; };
 		FAD5639D2AA362B900A86428 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5639C2AA362B900A86428 /* NewsDetailViewController.swift */; };
 		FAD563A02AA37E3500A86428 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FAD5639F2AA37E3500A86428 /* SDWebImage */; };
@@ -73,7 +72,6 @@
 			files = (
 				FAD563A02AA37E3500A86428 /* SDWebImage in Frameworks */,
 				FAD563832AA2331F00A86428 /* SnapKit in Frameworks */,
-				FAD563992AA3462C00A86428 /* ExpandableLabel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +231,6 @@
 			name = NatifeTestApp;
 			packageProductDependencies = (
 				FAD563822AA2331F00A86428 /* SnapKit */,
-				FAD563982AA3462C00A86428 /* ExpandableLabel */,
 				FAD5639F2AA37E3500A86428 /* SDWebImage */,
 			);
 			productName = NatifeTestApp;
@@ -718,11 +715,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FAD563812AA2331F00A86428 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		FAD563982AA3462C00A86428 /* ExpandableLabel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FAD563972AA3462C00A86428 /* XCRemoteSwiftPackageReference "ExpandableLabel" */;
-			productName = ExpandableLabel;
 		};
 		FAD5639F2AA37E3500A86428 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;

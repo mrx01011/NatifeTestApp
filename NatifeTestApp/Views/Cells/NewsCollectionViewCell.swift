@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import ExpandableLabel
 
 final class NewsCollectionViewCell: UICollectionViewCell {
     var state: NewsCollectionViewCellState = .normal {
@@ -15,18 +14,15 @@ final class NewsCollectionViewCell: UICollectionViewCell {
             updateCellState(state)
         }
     }
-    private let dateManager = DateManager()
     var infoToShow: Post? {
         didSet {
             titleLabel.text = infoToShow?.title
             messageLabel.text = infoToShow?.previewText
             ratingLabel.text = "❤️ \(infoToShow?.likesCount ?? 0)"
-            state = .init(isTextTruncated: messageLabel.isTruncated)
-            let timeAgo = dateManager.timeAgoFrom(unixTimestamp: TimeInterval(infoToShow?.timeshamp ?? 0))
-            dateLabel.text = timeAgo
+            dateLabel.text = dateManager.timeAgoFrom(unixTimestamp: TimeInterval(infoToShow?.timeshamp ?? 0))
         }
     }
-    var constraintButton: Constraint?
+    private let dateManager = DateManager()
     //MARK: UI elements
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -36,7 +32,7 @@ final class NewsCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         return label
     }()
-    private let messageLabel: UILabel = {
+    let messageLabel: UILabel = {
         let label = UILabel()
         label.text = "message"
         label.font = .systemFont(ofSize: 14)
@@ -66,10 +62,12 @@ final class NewsCollectionViewCell: UICollectionViewCell {
         button.layer.cornerRadius = 10
         return button
     }()
+    var constraintButton: Constraint?
     //MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        addTargets()
     }
     
     required init?(coder: NSCoder) {
@@ -83,22 +81,34 @@ final class NewsCollectionViewCell: UICollectionViewCell {
         return newAttributes
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
+    private func addTargets() {
+        expandButton.addTarget(self, action: #selector(expandButtonTapped), for: .touchUpInside)
+    }
+
     private func updateCellState(_ state: NewsCollectionViewCellState) {
         switch state {
         case .normal:
             expandButton.removeFromSuperview()
             constraintButton?.update(priority: .high)
         case .collapsed:
+            constraintButton?.update(priority: .low)
             addSubview(expandButton)
             expandButton.snp.makeConstraints { make in
-                make.top.equalTo(ratingLabel.snp.bottom).offset(Constants.Offsets.top)
+                make.top.equalTo(ratingLabel.snp.bottom)
                 make.horizontalEdges.equalToSuperview().inset(Constants.Offsets.side)
                 make.bottom.equalToSuperview()
             }
-            constraintButton?.update(priority: .low)
+            expandButton.setTitle("Expand", for: .normal)
+            messageLabel.numberOfLines = 2
         case .expended:
             expandButton.setTitle("Collapse", for: .normal)
+            messageLabel.numberOfLines = 0
         }
+        self.invalidateIntrinsicContentSize()
     }
     
     private func setupUI() {
@@ -129,6 +139,17 @@ final class NewsCollectionViewCell: UICollectionViewCell {
             make.trailing.equalToSuperview().inset(Constants.Offsets.side)
         }
     }
+    
+    @objc private func expandButtonTapped() {
+        switch state {
+        case .normal:
+            break
+        case .collapsed:
+            state = .expended
+        case .expended:
+            state = .collapsed
+        }
+    }
 }
 //MARK: - State
 extension NewsCollectionViewCell {
@@ -136,7 +157,7 @@ extension NewsCollectionViewCell {
         case normal
         case collapsed
         case expended
-        
+
         init(isTextTruncated: Bool) {
             if isTextTruncated {
                 self = .collapsed
@@ -146,7 +167,6 @@ extension NewsCollectionViewCell {
         }
     }
 }
-
 //MARK: - Constants
 extension NewsCollectionViewCell {
     enum Constants {
