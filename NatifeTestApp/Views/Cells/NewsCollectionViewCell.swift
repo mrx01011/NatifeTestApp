@@ -20,8 +20,13 @@ final class NewsCollectionViewCell: UICollectionViewCell {
             messageLabel.text = infoToShow?.previewText
             ratingLabel.text = "❤️ \(infoToShow?.likesCount ?? 0)"
             dateLabel.text = dateManager.timeAgoFrom(unixTimestamp: TimeInterval(infoToShow?.timeshamp ?? 0))
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.isTruncated = self.messageLabel.isTruncated()
+            }
         }
     }
+    var isTruncated = false
     private let dateManager = DateManager()
     //MARK: UI elements
     private let titleLabel: UILabel = {
@@ -32,7 +37,7 @@ final class NewsCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         return label
     }()
-    let messageLabel: UILabel = {
+    private let messageLabel: UILabel = {
         let label = UILabel()
         label.text = "message"
         label.font = .systemFont(ofSize: 14)
@@ -81,14 +86,10 @@ final class NewsCollectionViewCell: UICollectionViewCell {
         return newAttributes
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
     private func addTargets() {
         expandButton.addTarget(self, action: #selector(expandButtonTapped), for: .touchUpInside)
     }
-
+    
     private func updateCellState(_ state: NewsCollectionViewCellState) {
         switch state {
         case .normal:
@@ -157,7 +158,7 @@ extension NewsCollectionViewCell {
         case normal
         case collapsed
         case expended
-
+        
         init(isTextTruncated: Bool) {
             if isTextTruncated {
                 self = .collapsed

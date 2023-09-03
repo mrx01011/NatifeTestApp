@@ -29,37 +29,3 @@ extension UILabel {
         return false
     }
 }
-//extension UILabel {
-//    func countLabelLines() -> Int {
-//        // Определяем текущий контейнер для текста
-//        let textContainer = NSTextContainer(size: CGSize(width: self.bounds.width, height: CGFloat.greatestFiniteMagnitude))
-//        textContainer.lineBreakMode = self.lineBreakMode
-//        textContainer.maximumNumberOfLines = self.numberOfLines
-//
-//        // Создаем layoutManager и добавляем текстовый контейнер
-//        let layoutManager = NSLayoutManager()
-//        layoutManager.addTextContainer(textContainer)
-//
-//        // Создаем строку для измерения
-//        let textStorage = NSTextStorage(attributedString: self.attributedText ?? NSAttributedString(string: self.text ?? ""))
-//        textStorage.addLayoutManager(layoutManager)
-//
-//        // Измеряем высоту текста
-//        var numberOfLines = 0
-//        var index = 0
-//        var lineRange : NSRange = NSRange(location: 0, length: 0)
-//
-//        while (index < layoutManager.numberOfGlyphs) {
-//            layoutManager.lineFragmentRect(forGlyphAt: index, effectiveRange: &lineRange)
-//            index = NSMaxRange(lineRange)
-//            numberOfLines += 1
-//        }
-//
-//        return numberOfLines
-//    }
-//
-//    func isTruncated() -> Bool {
-//        self.layoutIfNeeded()
-//        return self.countLabelLines() > self.numberOfLines
-//    }
-//}

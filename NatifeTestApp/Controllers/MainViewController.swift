@@ -84,7 +84,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as? NewsCollectionViewCell else { return UICollectionViewCell() }
         cell.infoToShow = newsArray[indexPath.row]
         DispatchQueue.main.async {
-            cell.state = .init(isTextTruncated: cell.messageLabel.isTruncated())
+            cell.state = .init(isTextTruncated: cell.isTruncated)
         }
         return cell
     }
